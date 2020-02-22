@@ -1,0 +1,20 @@
+name: C/C++ CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: compile
+      run: gcc -O3 -o Exodus.out exodus.cpp
+    - name: clean
+      run: strip Exodus.out
+    - name: Github Release
+      uses: elgohr/Github-Release-Action@v3.1
+      with:
+        # The name of the release to publish
+        release: exodus.exe
