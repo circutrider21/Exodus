@@ -15,8 +15,9 @@ jobs:
       run: cd build && g++ -O3 -o Exodus.out ../main.cpp
     - name: clean
       run: strip build/Exodus.out
-    - name: Github Release
-      uses: elgohr/Github-Release-Action@v3.1
+    - name: Upload to release
+      uses: JasonEtco/upload-to-release@master
+      with:
+        args: Build\Exodus.out
       env:
-          GHR_PATH: build/Exodus.out
-          GITHUB_TOKEN: ${{ secrets.GITOK }}
+        GITHUB_TOKEN: ${{ secrets.GITOK }}
