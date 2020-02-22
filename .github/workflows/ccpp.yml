@@ -15,9 +15,9 @@ jobs:
       run: cd build && g++ -O3 -o Exodus.out ../main.cpp
     - name: clean
       run: strip build/Exodus.out
-    - name: Upload to release
-      uses: JasonEtco/upload-to-release@master
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
       with:
-        args: build\Exodus.out
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITOK }}
+        name: Exodus,out
+        # Directory containing files to upload
+        path: build\Exodus.out
