@@ -9,12 +9,14 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
+    - name: make build-dir
+      run: mkdir build
     - name: compile
-      run: gcc -O3 -o Exodus.out exodus.cpp
+      run: cd build && gcc -O3 -o Exodus.out ../main.cpp
     - name: clean
       run: strip Exodus.out
     - name: Github Release
       uses: elgohr/Github-Release-Action@v3.1
-      with:
-        # The name of the release to publish
-        release: exodus.exe
+      env:
+          GHR_PATH: build/Exodus.out
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
