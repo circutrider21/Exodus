@@ -2,7 +2,7 @@
 #include "toml.hpp"
 using namespace std;
 
-public class parser {
+public class Parser {
   public:
   int parse(String command) {
     const auto data = toml::parse("build.toml");
@@ -22,4 +22,4 @@ public class parser {
       parse(argv[1]);
     }
   }
-}
+};
