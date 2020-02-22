@@ -1,5 +1,6 @@
 #include <iostream>
 #include "toml.hpp"
+#include "parser.hpp"
 
 using namespace std;
 
