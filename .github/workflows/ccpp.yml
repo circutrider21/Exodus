@@ -14,7 +14,7 @@ jobs:
     - name: compile
       run: cd build && g++ -O3 -o Exodus.out ../main.cpp
     - name: clean
-      run: strip Exodus.out
+      run: strip Build/Exodus.out
     - name: Github Release
       uses: elgohr/Github-Release-Action@v3.1
       env:
