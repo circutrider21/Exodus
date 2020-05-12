@@ -1,11 +1,14 @@
 #include <iostream>
-#include "toml.hpp"
-#include "parser.hpp"
+#include <cli.hpp>
 
 using namespace std;
+using namespace cli;
 
 int main(int argc, char *argv[]) {
-  Parser p;
-  string toparse = argv[1];
-  p.argone(toparse);
+  if (argc == 0) {
+    Helptext::intro();
+    Helptext::help();
+  }
+  Main app(argv);
+  app.start();
 }
